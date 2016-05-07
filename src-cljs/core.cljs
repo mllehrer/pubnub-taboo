@@ -19,6 +19,4 @@
                            (ef/do-> #(js/alert "You won!")
                                     #(js/window.location.reload)))))
 
-
-
       )

@@ -24,6 +24,7 @@
   (ANY "/repl" {:as req}
        (drawbridge req))
            (GET "/" [] (slurp (io/resource "index.html")))
+           (route/resources "/resources")
   (ANY "*" []
        (route/not-found (slurp (io/resource "404.html")))))
 
