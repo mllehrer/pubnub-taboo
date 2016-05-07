@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Taboo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="main.css" rel="stylesheet" type="text/css">
+    <script src="http://cdn.pubnub.com/pubnub.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>Taboo</h1>
+    <p>Give your friend clues and try to guess your friend's word, but don't give a taboo clue!</p>
+</header>
+<div id="card-div">
+    <div id="show-card">
+        <h2 id="card-title"></h2>
+        <div id="taboo-words"></div>
+    </div>
+</div>
+<br>
+<div id="pubnub">
+    <div id="send-out">
+        <div><input id="clue-input" placeholder="Type a clue"/></div>
+        <div id="send-box"></div>
+    </div>
+    <div id="take-guess">
+        <div><input id="guess-input" placeholder="Make a guess"/></div>
+        <div id="receive-box"></div>
+        <button id="win">They got it!</button>
+    </div>
+    <script>
+    function validateClue(clue) {
+    for (i = 0; i < clue.split(" ").length; i++) {
+    word = clue.split(" ")[i].toUpperCase();
+    if (document.getElementById('card-title').innerHTML.concat(document.getElementById('taboo-words').innerHTML).toUpperCase().indexOf(word) > -1) {
+    return "BZZZZT!";
+    }
+    else { return clue
+    }
+    }
+    };
+    (function(){
+    var receiveBox = PUBNUB.$('send-box'), input = PUBNUB.$('clue-input'), channel = 'chat';
+    PUBNUB.subscribe({
+    channel  : channel,
+    callback : function(text) { receiveBox.innerHTML = (''+text).replace( /[<>]/g, '' ) + '<br>' + receiveBox.innerHTML }
+    });
+    PUBNUB.bind( 'keyup', input, function(e) {
+    (e.keyCode || e.charCode) === 13 && PUBNUB.publish({
+    channel : channel, message : validateClue(input.value), x : (input.value='')
+    })
+    } )
+    })();
+    (function(){
+    var sendBox = PUBNUB.$('receive-box'), input = PUBNUB.$('guess-input'), channel = 'chat2';
+    PUBNUB.subscribe({
+    channel  : channel,
+    callback : function(text) { sendBox.innerHTML = (''+text).replace( /[<>]/g, '' ) + '<br>' + sendBox.innerHTML }
+    });
+    PUBNUB.bind( 'keyup', input, function(e) {
+    (e.keyCode || e.charCode) === 13 && PUBNUB.publish({
+    channel : channel, message : input.value, x : (input.value='')
+    })
+    } )
+    })();
+ </script>
+</div>
+</div>
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript">pubnub_taboo.core.init()</script>
+</body>
+</html>

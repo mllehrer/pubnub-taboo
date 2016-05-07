@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-image: url("http://tremendouswallpapers.com/wp-content/uploads/2014/12/Free-Cool-Backgrounds-for-Websites-Wood-1024x575.jpg");
+    height: 100%;
+}
+
+header {
+
+border: 5px groove #fefe66;
+background-color: #01cdfe;
+text-align: center;
+}
+
+#card-div {
+width: 100%;
+padding-top: 1%;
+}
+
+#show-card {
+
+margin: 0 auto;
+background-color: #C774E8;
+border: 5px groove #FF6AD5;
+width: 200px;
+height: 200px;
+padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+}
+
+#send-out {
+position:fixed; top: 50%; left: 20%;
+border: 5px groove #FF6AD5;
+width: 200px;
+height: 300px;
+max-width: 30%;
+background-color: #fefec4;
+}
+
+#take-guess {
+position:fixed; top: 50%; right: 20%;
+border: 5px groove #FF6AD5;
+width: 200px;
+height: 300px;
+max-width: 30%;
+background-color: #fefec4;
+}
+
+#clue-input {
+max-width: 100%;
+min-width: 50px;
+}
+
+#guess-input {
+max-width: 100%;
+}
