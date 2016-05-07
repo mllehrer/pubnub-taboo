@@ -2,6 +2,8 @@
 
 A [Heroku](http://www.heroku.com) web app using Compojure, Clojurescript, and the [PubNub] (http://www.pubnub.com) JavaScript SDK.
 
+[Play it live!](https://aqueous-island-46073.herokuapp.com)
+
 
 ## How to Play
 
