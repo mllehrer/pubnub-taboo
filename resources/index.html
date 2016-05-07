@@ -10,23 +10,23 @@
 <body>
 <header>
     <h1>Taboo</h1>
-    <p>Your word is at the top of the page. Without using any of the "taboo" words (listed in smaller font below the word), try to help your friend guess the word on your card by typing clues into the clue box.
+    <p>Without using any of the "taboo" words (listed in smaller font below the word on your card), try to help your friend guess your card by typing clues into the clue box.
         Your friend also has a card and can send you clues as well. Type your guesses into the guess box, and watch the guess box for your friend's guesses as well. When they get it right, clicking the "They got it!" button refreshes the page for a new card.</p>
 </header>
 <div id="card-div">
     <div id="show-card">
-        <h2 id="card-title"></h2>
+        <h2 id="card-title">Blank? Refresh the page!</h2>
         <div id="taboo-words"></div>
     </div>
 </div>
 <br>
 <div id="pubnub">
     <div id="send-out">
-        <div><input id="clue-input" placeholder="Type a clue"/></div>
+        <div><input id="clue-input" placeholder="Send/Receive clues here"/></div>
         <div id="send-box"></div>
     </div>
     <div id="take-guess">
-        <div><input id="guess-input" placeholder="Make a guess"/></div>
+        <div><input id="guess-input" placeholder="Make/receive guesses here"/></div>
         <div id="receive-box"></div>
         <button id="win">They got it!</button>
     </div>
